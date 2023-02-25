@@ -1,0 +1,209 @@
+@font-face {
+    font-family: logo;
+    src: url(../fonts/Monster\ hunter\ type\ 2.ttf);
+}
+
+@font-face {
+    font-family: MHRegular;
+    src: url(../fonts/vtc_goblin_hand/VTCGoblinHandBold.ttf);
+}
+
+@font-face {
+    font-family: michelin;
+    src: url(../fonts/Gotham-Font/Gotham-XLight.otf);
+}
+
+@font-face {
+    font-family: best50;
+    src: url(../fonts/best.otf);
+}
+
+@font-face {
+    font-family: NYT;
+    src: url(../fonts/the-new-york-times-font.com/Ancient\ Medium.ttf);
+}
+
+
+.logo-wrapper {
+    position: absolute;
+    /* display: flex;
+    flex-direction: column; */
+    color: white;
+    width: 100vw;
+    height: 100vh;
+    /* justify-content: center;
+    align-items: center; */
+    display: grid;
+    grid-template: repeat(3, 1fr) / 1fr;
+    z-index: 90;
+}
+
+.logo {
+    align-self: center;
+    justify-self: center;
+    grid-row: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: -150px;
+}
+
+.logo .logo-image {
+    width: 470px;
+    height: 470px;
+    transform: rotate(-30deg);
+}
+
+.logo .logo-text {
+    font-family: logo;
+    font-size: 50px;
+    margin-left: -130px;
+    margin-bottom: 20px;
+}
+
+/* ------------------------------------------------------------------ */
+.logo-bottom {
+    grid-row: 3;
+    align-self: flex-end;
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 30px;
+    padding-left: 50px;
+    padding-right: 70px;
+
+}
+
+.logo-bottom-left {
+    font-family: MHRegular;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+}
+
+
+.logo-bottom-left a {
+    display: flex;
+    gap: 10px;
+}
+
+.logo-bottom-left a img {
+    width: 20px;
+    height: 20px;
+    padding-bottom: 5px;
+}
+
+.logo-bottom-left:hover a {
+    animation: bounce 2s ease-in-out;
+}
+
+@keyframes bounce {
+    0% {
+        transform: scale(1, 1) translateY(0);
+    }
+
+    10% {
+        transform: scale(1.1, .9) translateY(0);
+    }
+
+    30% {
+        transform: scale(.9, 1.1) translateY(-4px);
+    }
+
+    50% {
+        transform: scale(1.05, .95) translateY(0);
+    }
+
+    58% {
+        transform: scale(1, 1) translateY(-4px);
+    }
+
+    65% {
+        transform: scale(1, 1) translateY(0);
+    }
+
+    100% {
+        transform: scale(1, 1) translateY(0);
+    }
+}
+
+/* ------------------------------------------------------------------ */
+
+.logo-bottom-right {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 500px;
+}
+
+
+/* Award 1 */
+.logo-bottom-right .award-1 {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    justify-content: center;
+    font-family: michelin;
+    font-size: 13px;
+}
+
+.logo-bottom-right .award-1 .aw-imgs {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.logo-bottom-right .award-1 .aw-imgs img {
+    width: 40px;
+    height: 40px;
+}
+
+/* Award 2 */
+
+.logo-bottom-right .award-2 {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    justify-content: center;
+    font-family: best50;
+    gap: 1px;
+}
+
+.logo-bottom-right .award-2 .line-1 {
+    font-size: 8px;
+    text-align: center;
+    margin-bottom: -7px;
+}
+
+.logo-bottom-right .award-2 .line-2 {
+    font-size: 12px;
+    text-align: center;
+    margin-bottom: -35px;
+}
+
+.logo-bottom-right .award-2 .line-3 {
+    font-size: 75px;
+    text-align: center;
+    letter-spacing: -7px;
+    font-weight: bolder;
+    margin-right: 5px;
+}
+
+.logo-bottom-right .award-2 .line-4 {
+    font-size: 25px;
+    text-align: center;
+    font-weight: bolder;
+    margin-top: -25px;
+}
+
+.logo-bottom-right .award-2 .line-5 {
+    font-size: 10px;
+    text-align: center;
+    margin-top: -7px;
+}
+
+/* Award 3 */
+.logo-bottom-right .award-3 {
+    font-family: NYT;
+    font-size: 25px;
+}

@@ -1,0 +1,420 @@
+@font-face {
+    font-family: regular;
+    src: url(../fonts/Metropolis\ regular/Metropolis-Regular.otf);
+}
+
+@font-face {
+    font-family: header;
+    src: url(../fonts/edo_sz/edosz.ttf);
+}
+
+@font-face {
+    font-family: MHRegular;
+    src: url(../fonts/vtc_goblin_hand/VTCGoblinHandBold.ttf);
+}
+
+*,
+::after,
+::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border-collapse: separate;
+}
+
+html {
+    scroll-behavior: smooth
+}
+
+body {
+    width: 100vw;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Intro-video */
+
+.ownersVid {
+    width: 100vw;
+    height: 99.5vh;
+}
+
+.ownersVid::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    content: '';
+    background: radial-gradient(circle 350px, rgba(255, 255, 255, 0.1), rgb(0, 0, 0, 0.4));
+}
+
+video {
+    height: 100vh;
+    width: 100vw;
+    object-fit: fill;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+
+/* Main content */
+.content.owners {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* background-color: rgb(249, 248, 238); */
+    background: url(../images/chefs/bg_cloud.jpg);
+    background-size: cover;
+}
+
+.content.owners::before,
+.content.owners::after {
+    width: 100%;
+    content: '';
+    height: 6px;
+    background-image: url(../images/chefs/deco_repeat_x.jpg);
+    background-size: contain;
+}
+
+.content.owners p {
+    line-height: 1.5em;
+}
+
+.header {
+    font-weight: bolder;
+}
+
+/* Owners intro */
+
+.intro-owners {
+    /* width: 100vw;
+    height: 100vh; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100vw;
+    font-family: regular;
+    position: relative;
+}
+
+.intro-owners::before {
+    position: absolute;
+    content: '';
+    width: 380px;
+    height: 555px;
+    background-image: url(../images/chefs/deco1_up.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    right: 1rem;
+}
+
+.intro-owners .header,
+.intro-staff .header {
+    background: url(../images/chefs/heading_1_top.png), url(../images/chefs/heading_1_bottom.png) bottom;
+    background-size: contain;
+    background-repeat: no-repeat;
+    padding-top: 50px;
+    padding-bottom: 40px;
+    margin-top: 100px;
+    font-size: 50px;
+    width: 800px;
+    text-align: center;
+    color: rgb(116, 170, 210);
+    font-family: header;
+    font-style: italic;
+}
+
+.intro-owners .desc {
+    width: 800px;
+    margin-top: 100px;
+}
+
+.intro-owners img {
+    margin-top: 100px;
+    width: 500px;
+    height: 600px;
+}
+
+/* Chefs intro */
+.intro-chefs {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    font-family: regular;
+}
+
+.chef-1,
+.chef-2 {
+    max-width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.chef-1 .image img,
+.chef-2 .image img {
+    height: 425px;
+    width: 300px;
+}
+
+
+/* Divider */
+.section-divider {
+    width: 800px;
+    height: 200px;
+    background: url(../images/chefs/deco_section-separator.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin-top: 120px;
+}
+
+/* Intro staff */
+
+
+
+/* Slideshow */
+.intro-staff {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    margin-top: -120px;
+    margin-bottom: 150px;
+    position: relative;
+}
+
+.intro-staff::after {
+    position: absolute;
+    content: '';
+    width: 380px;
+    height: 555px;
+    background-image: url(../images/chefs/deco1_down.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    top: 54rem;
+    left: -20rem;
+}
+
+.intro-staff .desc {
+    max-width: 800px;
+    font-family: regular;
+    margin-top: 50px;
+    line-height: 1.5em;
+}
+
+.slide-container {
+    width: 560px;
+    height: 290px;
+    position: relative;
+    overflow: hidden;
+    margin-top: 50px;
+}
+
+
+.slide {
+    width: 100%;
+    height: 100%;
+    display: none;
+    background-color: transparent;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+}
+
+.slide .main {
+    border-radius: 10%;
+}
+
+.slide img.frame {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: transparent;
+}
+
+.prev,
+.next {
+    position: absolute;
+    top: 45%;
+    width: 30px;
+    height: 50px;
+    color: white;
+    font-weight: bold;
+    user-select: none;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 3px;
+}
+
+.prev {
+    transform: rotate(180deg);
+}
+
+
+.prev:hover,
+.next:hover {
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.next {
+    right: 0;
+    /* Elements already positioned on the left by default */
+
+}
+
+.fade-in {
+    animation: fade 1000ms ease 0s;
+}
+
+@keyframes fade {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* Slide accessory - Number, caption and tracking dots */
+
+.numbering {
+    position: absolute;
+    color: black;
+    top: 2222px;
+    left: 10000px;
+    font-size: 20px;
+    font: regular;
+}
+
+.caption {
+    position: absolute;
+    color: black;
+    bottom: -298px;
+    text-align: center;
+    font-size: 20px;
+    width: 100%;
+    font-weight: bolder;
+    font-family: MHRegular;
+}
+
+.dot-container {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+}
+
+.dot {
+    cursor: pointer;
+    height: 10px;
+    width: 10px;
+    transform: rotate(67.5deg) skewX(45deg) scaleY(0.7);
+    display: inline-block;
+    background-color: black;
+    margin-top: -30px;
+}
+
+.active,
+.dot:hover {
+    background-color: #717171;
+}
+
+/* Intersection effects */
+
+.fadeOut {
+    opacity: 0;
+    transition: all 1.3s;
+    transform: translateY(80px);
+}
+
+.fadeIn {
+    opacity: 1;
+    transition: all 1.3s;
+    animation: fadeUpward 1.3s ease-in;
+}
+
+@keyframes fadeUpward {
+
+    0% {
+        opacity: 0;
+        transform: translateY(80px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+/* simple Fade */
+.hidden {
+    opacity: 0;
+    transition: all 1.5s;
+}
+
+.show {
+    opacity: 1;
+    transition: all 1.5s;
+}
+
+/* Horizontal Left-to-right*/
+.fadeFromLeft {
+    opacity: 0;
+    transition: all 1.5s;
+    transform: translateX(-100px);
+}
+
+.fadeToRight {
+    animation: fadeToRight 1.5s ease-in;
+}
+
+@keyframes fadeToRight {
+
+    0% {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+/* Horizontal Left-to-right*/
+
+.fadeFromRight {
+    opacity: 0;
+    transition: all 1.5s;
+    transform: translateX(100px);
+}
+
+.fadeToLeft {
+    animation: fadeToLeft 1.5s ease-in;
+}
+
+@keyframes fadeToLeft {
+
+    0% {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}

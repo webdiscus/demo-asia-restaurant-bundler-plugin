@@ -1,0 +1,296 @@
+@font-face {
+    font-family: MHRegular;
+    src: url(../fonts/vtc_goblin_hand/VTCGoblinHandBold.ttf);
+}
+
+@font-face {
+    font-family: logo;
+    src: url(../fonts/Monster\ hunter\ type\ 2.ttf);
+}
+
+/* Main NavBar */
+.navbar {
+    width: 100%;
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    z-index: 100;
+    font-size: 17px;
+    padding-top: 30px;
+    padding-left: 50px;
+    padding-right: 50px;
+    font-family: MHRegular;
+    font-weight: 900;
+    border-top: 5px solid;
+    border-image: url(../images/chefs/deco_repeat_x.jpg) 30% round;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+    scroll-behavior: smooth;
+}
+
+a:hover,
+.sidebar.symbol:hover,
+.order:hover,
+.reserve:hover {
+    cursor: pointer;
+}
+
+.nav-inactive {
+    position: relative;
+}
+
+
+.nav-inactive::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    top: 93.5%;
+    left: 0;
+    transform: scaleX(0);
+    height: 2px;
+    background-color: white;
+    transform-origin: center;
+    transition: transform 0.25s ease-out;
+}
+
+.nav-inactive:hover::after {
+    transform: scaleX(1);
+    transform-origin: center;
+}
+
+/* nav-active */
+
+.nav-active {
+    border-bottom: solid 2px white;
+}
+
+/* Left nav and right nav */
+
+.left-nav {
+    display: flex;
+    color: white;
+    align-items: center;
+    gap: 40px;
+}
+
+.symbol-container {
+    border: solid 1px rgb(116, 16, 13);
+    padding: 2px;
+}
+
+.left-nav .sidebar.symbol {
+    width: 70px;
+    height: 90px;
+    background: url(../images/nav/red-bg.png);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    /* padding-bottom: 10px;
+    padding-top: 5px; */
+}
+
+.left-nav .sidebar.symbol img {
+    width: 50px;
+    height: 50px;
+    color: white;
+}
+
+.left-nav .sidebar.symbol .menu-text {
+    font-size: 13px;
+}
+
+.left-nav .left-content {
+    display: flex;
+    gaP: 30px;
+}
+
+.left-nav a {
+    padding: 10px 10px
+}
+
+.left-nav .sidebar.symbol:hover img {
+    animation: rotation 3s linear infinite;
+}
+
+@keyframes rotation {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(359deg);
+    }
+}
+
+/* ------------------------------------------------------------------- */
+.right-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    gap: 40px;
+}
+
+.order {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+.order .order-img {
+    width: 40px;
+    height: 20px;
+}
+
+.reserve {
+    padding: 30px 20px;
+    background: url(../images/nav/banner-red-small.png) no-repeat;
+    background-size: 200px 50px;
+    background-position: center;
+    width: 200px;
+    text-align: center;
+}
+
+.reserve:hover .reserve-text,
+.order:hover .order-text,
+.order:hover .order-img {
+    animation: bounce 2s ease-in-out, glow 2s alternate;
+}
+
+@keyframes bounce {
+    0% {
+        transform: scale(1, 1) translateY(0);
+    }
+
+    10% {
+        transform: scale(1.1, .9) translateY(0);
+    }
+
+    30% {
+        transform: scale(.9, 1.1) translateY(-4px);
+    }
+
+    50% {
+        transform: scale(1.05, .95) translateY(0);
+    }
+
+    58% {
+        transform: scale(1, 1) translateY(-4px);
+    }
+
+    65% {
+        transform: scale(1, 1) translateY(0);
+    }
+
+    100% {
+        transform: scale(1, 1) translateY(0);
+    }
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0px 0px 5px #fff, 0px 0px 5px #614ad3;
+    }
+
+    to {
+        text-shadow: 0px 0px 20px #fff, 0px 0px 20px #614ad3;
+    }
+}
+
+/* SideNav */
+
+.sidebar.menu {
+    position: fixed;
+    height: 100%;
+    width: 450px;
+    /* Change later with active click */
+    padding-top: 30px;
+    padding-left: 30px;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    /* No Horizontal scroll */
+    background:
+        /* linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3)), */
+        url(../images/nav/dragon-bg-col.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    font-family: MHRegular;
+    transform: translate3d(-450px, 0, 0);
+    transition: transform 1.5s cubic-bezier(.4, 0, .2, 1) 0.2s;
+    z-index: 200;
+    font-size: 20px;
+    text-shadow: 0px 0px 1px rgb(59 27 8 / 50%),
+        0px 0px 1px rgb(59 27 8/ 50%),
+        0px 0px 1px rgb(59 27 8 / 50%),
+        0px 0px 1px rgb(59 27 8 / 50%),
+        0px 0px 1px rgb(59 27 8 / 50%);
+}
+
+.sidebar.menu a {
+    display: block;
+    padding: 8px 8px 8px 32px;
+    color: rgba(59, 27, 8, 0.815);
+    font-weight: bolder;
+}
+
+.sidebar.menu a:hover {
+    color: rgba(231, 102, 27, 0.815);
+    text-shadow: 0px 0px 1px rgb(231 102 27 / 50%),
+        0px 0px 1px rgb(231 102 27/ 50%),
+        0px 0px 1px rgb(231 102 27 / 50%),
+        0px 0px 1px rgb(231 102 27 / 50%),
+        0px 0px 1px rgb(231 102 27 / 50%);
+}
+
+.sidebar.menu a:not(#home):not(.closeBtn) {
+    margin-top: 40px;
+}
+
+.sidebar.menu a#home {
+    margin-top: 35px;
+}
+
+.sidebar.menu>.closeBtn {
+    position: absolute;
+    top: 0;
+    right: 35px;
+    font-size: 36px;
+}
+
+/* Sticky Nav */
+
+.sticky-navbar {
+    width: 100vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: -180px;
+    background: transparent;
+    /* linear-gradient(to bottom, #f4f5f0 0%, #f4f5f0 32%, rgba(244, 245, 240, 0.85) 70%, rgba(244, 245, 240, 0.82) 71%, rgba(244, 245, 240, 0) 100%) */
+    transition: top 0.5s;
+    z-index: 100;
+    padding-left: 50px;
+    padding-right: 60px;
+    padding-bottom: 3rem;
+    font-family: MHRegular;
+    font-size: 17px;
+    font-weight: bold;
+    /* box-shadow: 0 8px 28px 2px grey; */
+}
+
+
+
+.sticky-navbar a,
+.sticky-navbar .order {
+    color: rgb(79, 35, 9);
+}

@@ -1,0 +1,117 @@
+@font-face {
+    font-family: g-header;
+    src: url(../fonts/vtc_goblin_hand/VTCGoblinHandSC.ttf);
+}
+
+@font-face {
+    font-family: logo;
+    src: url(../fonts/Monster\ hunter\ type\ 2.ttf);
+}
+
+@font-face {
+    font-family: regular;
+    src: url(../fonts/Metropolis\ regular/Metropolis-Regular.otf);
+}
+
+.footer-wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 50px;
+    gap: 30px;
+    background-color: rgb(249, 248, 238);
+    scroll-behavior: smooth;
+}
+
+/* rgb(233, 224, 224) FOR MIDDLE MENU */
+#guild {
+    display: flex;
+    width: 800px;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    scroll-behavior: smooth;
+}
+
+#guild img {
+    width: 30px;
+    height: 30px;
+    margin-top: 10px;
+}
+
+#guild p {
+    font-size: 50px;
+    font-family: g-header;
+    color: rgb(79, 35, 9);
+}
+
+/* ---------------------------------------------------------------- */
+.address,
+.guild-req {
+    width: 900px;
+    text-align: center;
+    font-family: regular;
+    color: rgb(110, 17, 16);
+}
+
+/* Logo */
+.footer-logo {
+    display: flex;
+}
+
+.footer-logo-image {
+    width: 170px;
+    height: 170px;
+    transform: rotate(-30deg);
+}
+
+.footer-logo-text {
+    font-family: logo;
+    font-size: 50px;
+    color: rgb(63, 37, 55);
+}
+
+/* Social media */
+.social-medias svg {
+    width: 50px;
+    height: 50px;
+    border: solid 1.5px rgb(110, 17, 16);
+    border-radius: 50%;
+    padding: 5px;
+}
+
+.social-medias svg:hover {
+    background-color: rgb(110, 17, 16);
+    cursor: pointer;
+}
+
+.social-medias svg:hover g:nth-child(1) {
+    fill: aliceblue;
+}
+
+.award {
+    width: 100%;
+    background-color: rgb(235, 231, 231);
+    box-shadow: inset 0px 15px 20px 2px rgb(216, 214, 214);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+}
+
+.award a.git {
+    color: black;
+    font-family: regular;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+.award img {
+    width: 30px;
+    height: 30px;
+}
