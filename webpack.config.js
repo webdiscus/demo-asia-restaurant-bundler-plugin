@@ -68,7 +68,7 @@ module.exports = {
         new HtmlWebpackPlugin({
             title: 'Home',
             template: './src/views/home.html',
-            filename: 'home.html',
+            filename: 'index.html',
             chunks: ['home'],
         }),
         new HtmlWebpackPlugin({

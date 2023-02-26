@@ -3,8 +3,6 @@ import { clickOpen, clickClose, navScroll, shuffleImage, interval, backgroundCha
 import { slideGallery } from "../templates/navGallery";
 import menu from "../templates/menu";
 import footer from "../templates/footer";
-import breakfast from "../images/menu/bg_cloud.jpg";
-import lunch from '../images/menu/bg_game-manual.jpg'
 import "../styles/footer.css";
 
 document.body.appendChild(nav);
@@ -26,9 +24,12 @@ window.addEventListener('DOMContentLoaded', () => {
     interval.makeInterval(menuInterval, 10000);
     /* Background changing */
 
-    backgroundChanger('.breakfast', 0.01, ['.bg-bf', '.bg-lch', '.bg-dnr'], `url(${breakfast})`);
-    backgroundChanger('.lunch', 0.1, ['.bg-lch', '.bg-bf', '.bg-dnr'], `url(${lunch})`);
-    backgroundChanger('.dinner', 0.1, ['.bg-dnr', '.bg-bf', '.bg-lch'], `url(${lunch})`);
+    backgroundChanger('.breakfast', 0.01, ['.bg-bf', '.bg-lch', '.bg-dnr']);
+    backgroundChanger('.breakfast-menu', 0.01, ['.bg-bf', '.bg-lch', '.bg-dnr']);
+    backgroundChanger('.lunch', 0.5, ['.bg-lch', '.bg-bf', '.bg-dnr']);
+    backgroundChanger('.lunch-menu', 0.5, ['.bg-lch', '.bg-bf', '.bg-dnr']);
+    backgroundChanger('.dinner', 0.5, ['.bg-dnr', '.bg-bf', '.bg-lch']);
+    backgroundChanger('.dnr-container', 0.3, ['.bg-dnr', '.bg-bf', '.bg-lch']);
 
     /* Section observe */
     ['#header-breakfast', '.special-dish'].forEach((parentClass) => {

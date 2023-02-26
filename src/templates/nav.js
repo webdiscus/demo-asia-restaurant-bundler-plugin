@@ -13,7 +13,7 @@ const nav = createPage(`
             </div>
         </div>
         <div class="left-content">
-            <a href="home.html" class="nav-inactive" id="home">HOME</a>
+            <a href="index.html" class="nav-inactive" id="home">HOME</a>
             <a href="owners.html" class="nav-inactive" id="owners">WHO WE ARE</a>
             <a href="menu.html" class="nav-inactive" id="menu">CUISINE</a>
             <a href="#guild" class="nav-inactive" id="contact">GUILD</a>
@@ -48,7 +48,7 @@ const stickyNav = createPage(`
 const sideNav = createPage(`
 <div class="sidebar menu">
     <a href="javascript:void(0)" class="closeBtn">&#x2716;</a>
-    <a href="home.html" id="home">Home</a>
+    <a href="index.html" id="home">Home</a>
     <a href="owners.html" id="owners" >Who we are</a>
     <a href="menu.html" id="menu">Menus</a>
     <a href="#guild" id="contact">Guild handler</a>
