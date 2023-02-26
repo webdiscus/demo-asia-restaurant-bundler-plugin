@@ -6,24 +6,37 @@ module.exports = {
     stats: 'minimal',
     output: {
         path: path.resolve(__dirname, 'dist'),
-        /* assetModuleFilename: 'images/[name][ext]', */
-        // to set the path for ALL asset file types 
         clean: true
     },
     devtool: 'inline-source-map',
-    devServer: {
-        //open: true, // open app in browser
-        static: {
-            directory: path.join(__dirname, 'dist'),
-        },
-        watchFiles: {
-            paths: ['src/**/*.*'],
-            options: {
-                usePolling: true,
-            },
-        },
-    },
     module: {
+        plugins: [
+            new HtmlBundlerPlugin({
+                entry: {
+                    // define all your templates here, the syntax is the same as Webpack entry
+                    index: { // => dist/index.html (key is output filename w/o '.html')
+                        import: 'src/views/home.html',
+                        data: { title: 'Home' },
+                    },
+                    menu: { // => dist/menu.html
+                        import: 'src/views/menu.html',
+                        data: { title: 'Menu' },
+                    },
+                    owners: { // => dist/owners.html
+                        import: 'src/views/owners.html',
+                        data: { title: 'Owners' },
+                    },
+                },
+                js: {
+                    // output filename of extracted JS from source script loaded in HTML via `<script>` tag
+                    filename: 'js/[name].[contenthash:8].js',
+                },
+                css: {
+                    // output filename of extracted CSS from source style loaded in HTML via `<link>` tag
+                    filename: 'css/[name].[contenthash:8].css',
+                },
+            }),
+        ],
         rules: [
             // templates
             {
@@ -66,31 +79,16 @@ module.exports = {
             chunks: 'all',
         },
     },
-    plugins: [
-        new HtmlBundlerPlugin({
-            entry: {
-                // define all your templates here, the syntax is the same as Webpack entry
-                index: { // => dist/index.html (key is output filename w/o '.html')
-                    import: 'src/views/home.html',
-                    data: { title: 'Home' },
-                },
-                menu: { // => dist/menu.html
-                    import: 'src/views/menu.html',
-                    data: { title: 'Menu' },
-                },
-                owners: { // => dist/owners.html
-                    import: 'src/views/owners.html',
-                    data: { title: 'Owners' },
-                },
+    devServer: {
+        open: true, // open app in browser
+        static: {
+            directory: path.join(__dirname, 'dist'),
+        },
+        watchFiles: {
+            paths: ['src/**/*.*'],
+            options: {
+                usePolling: true,
             },
-            js: {
-                // output filename of extracted JS from source script loaded in HTML via `<script>` tag
-                filename: 'js/[name].[contenthash:8].js',
-            },
-            css: {
-                // output filename of extracted CSS from source style loaded in HTML via `<link>` tag
-                filename: 'css/[name].[contenthash:8].css',
-            },
-        }),
-    ],
+        },
+    },
 }
