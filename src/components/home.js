@@ -7,6 +7,7 @@ import footer from "../templates/footer";
 import '../styles/home.css';
 import '../styles/logo.css';
 import "../styles/footer.css";
+import '../styles/preloader.css'
 
 
 document.body.appendChild(nav);
@@ -37,3 +38,7 @@ document.body.addEventListener('click', (e) => {/* Use event delegation */
         clickClose(sideNavContent);
     }
 });
+const preLoad = document.querySelector('#pre-loader')
+window.onload = () => {
+    preLoad.style.display = 'none';
+}

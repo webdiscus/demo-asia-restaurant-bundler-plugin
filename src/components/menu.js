@@ -4,6 +4,7 @@ import { slideGallery } from "../templates/navGallery";
 import menu from "../templates/menu";
 import footer from "../templates/footer";
 import "../styles/footer.css";
+import '../styles/preloader.css';
 
 document.body.appendChild(nav);
 document.body.appendChild(sideNav);
@@ -63,3 +64,8 @@ document.body.addEventListener('click', (e) => {/* Use event delegation */
         clickClose(sideNavContent);
     }
 });
+
+const preLoad = document.querySelector('#pre-loader')
+window.onload = () => {
+    preLoad.style.display = 'none';
+}

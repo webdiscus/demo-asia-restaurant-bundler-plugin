@@ -4,11 +4,11 @@ import { clickOpen, clickClose, navScroll, carouselStart, carouselAutoRun, moveS
 import { embedVideo, createLogo } from "../templates/navGallery";
 import owners from "../templates/owners";
 import footer from "../templates/footer";
-import chefVid from "../videos/GrammeowsterChef4k.mp4";
 import chefCutting from "../videos/CatChefCookingCutted.mp4"
 import '../styles/owners.css';
 import '../styles/logo.css';
 import "../styles/footer.css";
+import '../styles/preloader.css';
 
 
 document.body.appendChild(nav);
@@ -62,3 +62,8 @@ document.body.addEventListener('click', (e) => {/* Use event delegation */
         dotMove(e.target);
     }
 });
+
+const preLoad = document.querySelector('#pre-loader')
+window.onload = () => {
+    preLoad.style.display = 'none';
+}

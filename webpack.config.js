@@ -45,13 +45,10 @@ module.exports = {
                     {
                         loader: 'file-loader',
                         options: {
-                            name: '[name].[ext]'
+                            name: 'videos/[name].[ext]'
                         }
                     }
-                ],
-                generator: {
-                    filename: 'videos/[name][ext]'
-                }
+                ]
             },
         ],
     },
