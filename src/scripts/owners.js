@@ -1,29 +1,8 @@
 /* eslint-disable no-unused-vars */
-import { nav, sideNav, stickyNav } from "../templates/nav";
-import { clickOpen, clickClose, navScroll, carouselStart, carouselAutoRun, moveSlide, dotMove, universalObserver, tabNavStyle } from "../templates/template";
-import { embedVideo, createLogo } from "../templates/navGallery";
-import owners from "../templates/owners";
-import footer from "../templates/footer";
-import chefCutting from "../videos/CatChefCookingCutted.mp4"
-import '../styles/owners.css';
-import '../styles/logo.css';
-import "../styles/footer.css";
-import '../styles/preloader.css';
-
-
-document.body.appendChild(nav);
-document.body.appendChild(sideNav);
-document.body.appendChild(stickyNav);
-document.body.appendChild(owners);
-document.body.appendChild(footer);
-
-/* backgroundGallery() */
+import { clickOpen, clickClose, navScroll, carouselStart, carouselAutoRun, moveSlide, dotMove, universalObserver, tabNavStyle } from "../scripts/template";
 
 window.addEventListener('DOMContentLoaded', () => {
     tabNavStyle();
-    const mainContent = document.querySelector('.content.owners');
-    embedVideo(mainContent, 'ownersVid', 'loop autoplay muted', chefCutting);
-    createLogo(document.querySelector('.ownersVid'));
     carouselStart(1);
     setInterval(carouselAutoRun, 7000);
     ['.intro-owners', '.intro-staff'].forEach((parentClass) => {

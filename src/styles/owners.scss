@@ -1,0 +1,6 @@
+// bundle all styles in one file via `@use` rule
+@use './footer.css';
+@use './preloader.css';
+@use './nav.css';
+@use './owners.css';
+@use './logo.css';

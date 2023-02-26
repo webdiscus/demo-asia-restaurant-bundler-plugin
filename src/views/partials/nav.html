@@ -1,14 +1,9 @@
-import { createPage } from "./template";
-import menuIcon from "../images/nav/menu-icon.png";
-import meatIcon from "../images/nav/Meat.png";
-import "../styles/nav.css";
-
-const nav = createPage(`
+<!-- nav -->
 <div class="navbar" id="navbar">
     <div class="left-nav">
         <div class=symbol-container>
             <div class="sidebar symbol">
-                <img class="menu-icon" src="${menuIcon}">
+                <img class="menu-icon" src="../images/nav/menu-icon.png">
                 <p class="menu-text">Takeoff</p>
             </div>
         </div>
@@ -21,7 +16,7 @@ const nav = createPage(`
     </div>
     <div class="right-nav">
         <div class="order">
-            <img class="order-img" src="${meatIcon}">
+            <img class="order-img" src="../images/nav/Meat.png">
             <p class="order-text">ORDER</p>
         </div>
         <div class="reserve">
@@ -29,23 +24,8 @@ const nav = createPage(`
         </div>
     </div>
 </div>
-`)
 
-const stickyNav = createPage(`
-<div class="sticky-navbar" id="sticky-navbar">
-    <div class="left-nav">
-        <div class=symbol-container>
-            <div class="sidebar symbol">
-                <img class="menu-icon" src="${menuIcon}">
-                <p class="menu-text">Takeoff</p>
-            </div>
-        </div>
-    </div>
-</div>
-`)
-
-
-const sideNav = createPage(`
+<!-- sideNav -->
 <div class="sidebar menu">
     <a href="javascript:void(0)" class="closeBtn">&#x2716;</a>
     <a href="index.html" id="home">Home</a>
@@ -53,8 +33,15 @@ const sideNav = createPage(`
     <a href="menu.html" id="menu">Menus</a>
     <a href="#guild" id="contact">Guild handler</a>
 </div> 
-`)
 
-
-
-export { nav, sideNav, stickyNav };
+<!-- stickyNav -->
+<div class="sticky-navbar" id="sticky-navbar">
+    <div class="left-nav">
+        <div class=symbol-container>
+            <div class="sidebar symbol">
+                <img class="menu-icon" src="../images/nav/menu-icon.png">
+                <p class="menu-text">Takeoff</p>
+            </div>
+        </div>
+    </div>
+</div>

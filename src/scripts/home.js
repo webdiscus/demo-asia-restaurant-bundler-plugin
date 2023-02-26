@@ -1,26 +1,9 @@
 /* eslint-disable no-unused-vars */
-import { nav, sideNav, stickyNav } from "../templates/nav";
-import { clickOpen, clickClose, navScroll, intersectionObserve, universalObserver, tabNavStyle } from "../templates/template";
-import { backgroundGallery, createLogo } from "../templates/navGallery";
-import home from "../templates/home";
-import footer from "../templates/footer";
-import '../styles/home.css';
-import '../styles/logo.css';
-import "../styles/footer.css";
-import '../styles/preloader.css'
-
-
-document.body.appendChild(nav);
-document.body.appendChild(sideNav);
-document.body.appendChild(stickyNav);
-document.body.appendChild(home);
-document.body.appendChild(footer);
+import { clickOpen, clickClose, navScroll, universalObserver, tabNavStyle } from "../scripts/template";
 
 window.addEventListener('DOMContentLoaded', () => {
     tabNavStyle();
-    const mainContent = document.querySelector('.content.home');
-    backgroundGallery(mainContent, 'homePics');
-    createLogo(document.querySelector('.sidebar.menu'));
+
     ['.showcase', '.home-menu', '.intro', '.fixed-bg1-text'].forEach((parentClass) => {
         universalObserver(parentClass, 0.3, parentClass, 'fadeOut', 'fadeIn')
     })
@@ -38,6 +21,7 @@ document.body.addEventListener('click', (e) => {/* Use event delegation */
         clickClose(sideNavContent);
     }
 });
+
 const preLoad = document.querySelector('#pre-loader')
 window.onload = () => {
     preLoad.style.display = 'none';

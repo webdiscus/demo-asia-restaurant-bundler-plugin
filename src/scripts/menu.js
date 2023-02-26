@@ -1,20 +1,8 @@
-import { nav, sideNav, stickyNav } from "../templates/nav";
-import { clickOpen, clickClose, navScroll, shuffleImage, interval, backgroundChanger, universalObserver, tabNavStyle } from "../templates/template";
-import { slideGallery } from "../templates/navGallery";
-import menu from "../templates/menu";
-import footer from "../templates/footer";
-import "../styles/footer.css";
-import '../styles/preloader.css';
-
-document.body.appendChild(nav);
-document.body.appendChild(sideNav);
-document.body.appendChild(stickyNav);
-slideGallery('menuPics');
-document.body.appendChild(menu);
-document.body.appendChild(footer);
+import { clickOpen, clickClose, navScroll, shuffleImage, interval, backgroundChanger, universalObserver, tabNavStyle } from "../scripts/template";
 
 window.addEventListener('DOMContentLoaded', () => {
     tabNavStyle();
+    
     /* Nav Gallery */
     const menuInterval = () => shuffleImage('.menuPics');
     const images = Array.from(document.querySelectorAll('.menuPics'));
@@ -23,8 +11,8 @@ window.addEventListener('DOMContentLoaded', () => {
     }
     interval.makeTimeout(firstImageInterval, 10000);
     interval.makeInterval(menuInterval, 10000);
+    
     /* Background changing */
-
     backgroundChanger('.breakfast', 0.01, ['.bg-bf', '.bg-lch', '.bg-dnr']);
     backgroundChanger('.breakfast-menu', 0.01, ['.bg-bf', '.bg-lch', '.bg-dnr']);
     backgroundChanger('.lunch', 0.5, ['.bg-lch', '.bg-bf', '.bg-dnr']);
