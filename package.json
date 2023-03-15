@@ -22,13 +22,12 @@
   "devDependencies": {
     "@fortawesome/fontawesome-free": "^6.3.0",
     "css-loader": "^6.7.3",
-    "file-loader": "^6.2.0",
-    "html-bundler-webpack-plugin": "^1.4.0",
+    "html-bundler-webpack-plugin": "^1.6.3",
     "nunjucks":"3.2.3",
-    "sass": "1.58.3",
+    "sass": "1.59.3",
     "sass-loader":"13.2.0",
-    "webpack": "^5.75.0",
+    "webpack": "^5.76.1",
     "webpack-cli": "^5.0.1",
-    "webpack-dev-server": "^4.11.1"
+    "webpack-dev-server": "^4.12.0"
   }
 }

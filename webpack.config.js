@@ -1,6 +1,6 @@
 const path = require('path');
 const HtmlBundlerPlugin = require('html-bundler-webpack-plugin');
-const Nunjucks = require('nunjucks'); // for multiple pages better to use this templating engine from Mozila
+const Nunjucks = require('nunjucks'); // for multiple pages better to use this templating engine from Mozilla
 
 module.exports = {
     stats: 'minimal',
@@ -9,44 +9,39 @@ module.exports = {
         clean: true
     },
     devtool: 'inline-source-map',
-    module: {
-        plugins: [
-            new HtmlBundlerPlugin({
-                entry: {
-                    // define all your templates here, the syntax is the same as Webpack entry
-                    index: { // => dist/index.html (key is output filename w/o '.html')
-                        import: 'src/views/home.html',
-                        data: { title: 'Home' },
-                    },
-                    menu: { // => dist/menu.html
-                        import: 'src/views/menu.html',
-                        data: { title: 'Menu' },
-                    },
-                    owners: { // => dist/owners.html
-                        import: 'src/views/owners.html',
-                        data: { title: 'Owners' },
-                    },
+    plugins: [
+        new HtmlBundlerPlugin({
+            entry: {
+                // define all your templates here, the syntax is the same as Webpack entry
+                index: { // => dist/index.html (key is output filename w/o '.html')
+                    import: 'src/views/home.html',
+                    data: { title: 'Home' },
                 },
-                js: {
-                    // output filename of extracted JS from source script loaded in HTML via `<script>` tag
-                    filename: 'js/[name].[contenthash:8].js',
+                menu: { // => dist/menu.html
+                    import: 'src/views/menu.html',
+                    data: { title: 'Menu' },
                 },
-                css: {
-                    // output filename of extracted CSS from source style loaded in HTML via `<link>` tag
-                    filename: 'css/[name].[contenthash:8].css',
-                },
-            }),
-        ],
-        rules: [
-            // templates
-            {
-                test: /\.html$/,
-                loader: HtmlBundlerPlugin.loader, //  HTML template loader
-                options: {
-                    // render template with page-specific variables defined in entry
-                    preprocessor: (template, { data }) => Nunjucks.renderString(template, data),
+                owners: { // => dist/owners.html
+                    import: 'src/views/owners.html',
+                    data: { title: 'Owners' },
                 },
             },
+            js: {
+                // output filename of extracted JS from source script loaded in HTML via `<script>` tag
+                filename: 'js/[name].[contenthash:8].js',
+            },
+            css: {
+                // output filename of extracted CSS from source style loaded in HTML via `<link>` tag
+                filename: 'css/[name].[contenthash:8].css',
+            },
+            loaderOptions: {
+                // render template with page-specific variables defined in entry
+                preprocessor: (template, { data }) => Nunjucks.renderString(template, data),
+            },
+        }),
+    ],
+    module: {
+        rules: [
             {
                 test: /\.s?css$/i,
                 use: ['css-loader', 'sass-loader'],
@@ -81,6 +76,7 @@ module.exports = {
     },
     devServer: {
         open: true, // open app in browser
+        compress: true,
         static: {
             directory: path.join(__dirname, 'dist'),
         },
