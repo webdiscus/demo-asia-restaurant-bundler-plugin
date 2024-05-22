@@ -1,6 +1,5 @@
 const path = require('path');
 const HtmlBundlerPlugin = require('html-bundler-webpack-plugin');
-const Nunjucks = require('nunjucks'); // for multiple pages better to use this templating engine from Mozilla
 
 module.exports = {
     stats: 'minimal',
@@ -27,17 +26,15 @@ module.exports = {
                 },
             },
             js: {
-                // output filename of extracted JS from source script loaded in HTML via `<script>` tag
+                // JS output filename
                 filename: 'js/[name].[contenthash:8].js',
             },
             css: {
-                // output filename of extracted CSS from source style loaded in HTML via `<link>` tag
+                // CSS output filename
                 filename: 'css/[name].[contenthash:8].css',
             },
-            loaderOptions: {
-                // render template with page-specific variables defined in entry
-                preprocessor: (template, { data }) => Nunjucks.renderString(template, data),
-            },
+            // use Nunjucks templating engine to render *.html template files
+            preprocessor: 'nunjucks',
         }),
     ],
     module: {
@@ -75,7 +72,7 @@ module.exports = {
         },
     },
     devServer: {
-        open: true, // open app in browser
+        open: true,
         compress: true,
         static: {
             directory: path.join(__dirname, 'dist'),
